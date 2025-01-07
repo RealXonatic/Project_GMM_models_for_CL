@@ -10,5 +10,6 @@ CONFIG = {
     "epochs": 5,
     "lr": 0.001,
     "device": "cuda" if torch.cuda.is_available() else "cpu",
-    "huggingface_cache": "/data/jahegoul10/huggingface_cache"
+    "huggingface_cache": "/data/jahegoul10/huggingface_cache",
+    "num_classes": 10 # Ajoutez ceci
 }
