@@ -24,8 +24,9 @@ class MiniGPT4Wrapper(nn.Module):
         # Générer du texte
         output = self.model.generate(
             input_ids=inputs.input_ids,
-            max_length=50,
-            num_beams=5,
-            no_repeat_ngram_size=2
+            max_length=20,
+            do_sample=True,  # Active le sampling
+            top_k=50,        # Filtrage par les 50 tokens les plus probables
+            top_p=0.95       # Nucleus sampling pour réduire les probabilités cumulées
         )
         return self.tokenizer.decode(output[0], skip_special_tokens=True)
